@@ -31,6 +31,10 @@ describe('InputComponent', () => {
     expect(component._value).not.toBe(null);
   });
 
+  it('should have an empty value by default', () => {
+    expect(component._value).toEqual('');
+  });
+
   it('should set a value in nativeElement when component _value is set', () => {
     component._value = 'jumanji';
     fixture.detectChanges();

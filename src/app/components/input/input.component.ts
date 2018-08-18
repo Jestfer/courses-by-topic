@@ -6,7 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-  @Input('value') _value: string;
+  @Input('value') _value: String = '';
+  set value(param: String) {
+    this._value = param;
+  }
+
+  get value(): String {
+    return this._value;
+  }
 
   constructor() { }
 
