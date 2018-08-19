@@ -29,6 +29,7 @@ fdescribe('SelectComponent', () => {
   it('should have the following propertes', () => {
     expect(component._options).not.toBe(null);
     expect(component._value).not.toBe(null);
+    expect(component._disabled).not.toBe(null);
   });
 
   it('should set same amount of options for nativeElem as set in _options', () => {
@@ -51,5 +52,11 @@ fdescribe('SelectComponent', () => {
     optionEls = fixture.debugElement.queryAll(By.css('option'));
     optionEls[2].nativeElement.click(); // option nativeElem
     expect(component._value).toEqual('Three');
+  });
+
+  it('should disable nativeElem when component is set to disabled', () => {
+    component._disabled = '';
+    component.ngOnInit();
+    expect(selectEl.nativeElement.disabled).toBe(true);
   });
 });

@@ -1,3 +1,3 @@
-<select [value]="_value">
+<select #select [value]="_value">
   <option (click)="_value=$event.target.value" *ngFor="let opt of _options">{{ opt }}</option>
 </select>
