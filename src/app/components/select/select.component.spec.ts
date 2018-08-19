@@ -44,8 +44,12 @@ fdescribe('SelectComponent', () => {
     expect(component._value).toEqual('');
   });
 
-  xit('should change component value when an option is clicked', () => {
+  it('should change component value when an option is clicked', () => {
     component._options = ['One', 'Two', 'Three', 'Four'];
     fixture.detectChanges();
+
+    optionEls = fixture.debugElement.queryAll(By.css('option'));
+    optionEls[2].nativeElement.click(); // option nativeElem
+    expect(component._value).toEqual('Three');
   });
 });
