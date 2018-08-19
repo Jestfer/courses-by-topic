@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class SelectComponent {
   @Input('options') _options: Array<any>;
+  @Input('value') _value: String = '';
 
   constructor() { }
 

@@ -28,6 +28,7 @@ fdescribe('SelectComponent', () => {
 
   it('should have the following propertes', () => {
     expect(component._options).not.toBe(null);
+    expect(component._value).not.toBe(null);
   });
 
   it('should set same amount of options for nativeElem as set in _options', () => {
@@ -37,6 +38,10 @@ fdescribe('SelectComponent', () => {
 
     optionEls = fixture.debugElement.queryAll(By.css('option'));
     expect(optionEls.length).toBe(4);
+  });
+
+  it('should have an empty value by default', () => {
+    expect(component._value).toEqual('');
   });
 
   xit('should change component value when an option is clicked', () => {
