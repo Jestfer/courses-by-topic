@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topics.component.scss']
 })
 export class TopicsComponent implements OnInit {
+  title: String = 'Courses by Topic';
 
   constructor() { }
 
