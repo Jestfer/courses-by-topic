@@ -3,10 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SelectComponent } from './select.component';
 import { By } from '@angular/platform-browser';
 
-describe('SelectComponent', () => {
+fdescribe('SelectComponent', () => {
   let component: SelectComponent;
   let fixture: ComponentFixture<SelectComponent>;
-  let selectEl;
+  let selectEl, optionEls;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -33,6 +33,14 @@ describe('SelectComponent', () => {
   it('should set same amount of options for nativeElem as set in _options', () => {
     component._options = ['One', 'Two', 'Three', 'Four'];
     fixture.detectChanges();
-    expect(selectEl.nativeElement.attributes[1].value).toEqual('[\'One\', \'Two\', \'Three\', \'Four\']');
+    // expect(selectEl.nativeElement.children.length).toEqual(4);
+
+    optionEls = fixture.debugElement.queryAll(By.css('option'));
+    expect(optionEls.length).toBe(4);
+  });
+
+  xit('should change component value when an option is clicked', () => {
+    component._options = ['One', 'Two', 'Three', 'Four'];
+    fixture.detectChanges();
   });
 });

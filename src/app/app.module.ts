@@ -12,7 +12,7 @@ import { SelectComponent } from './components/select/select.component';
     SelectComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
