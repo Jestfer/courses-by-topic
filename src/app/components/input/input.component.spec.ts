@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputComponent } from './input.component';
 import { By } from '@angular/platform-browser';
 
-describe('InputComponent', () => {
+fdescribe('InputComponent', () => {
   let component: InputComponent;
   let fixture: ComponentFixture<InputComponent>;
   let inputEl;
@@ -39,5 +39,12 @@ describe('InputComponent', () => {
     component._value = 'jumanji';
     fixture.detectChanges();
     expect(inputEl.value).toEqual('jumanji');
+  });
+
+  it('should disable nativeEl when component is disabled', () => {
+    component._disabled = '';
+
+    component.ngOnInit();
+    expect(inputEl.disabled).toBe(true);
   });
 });
