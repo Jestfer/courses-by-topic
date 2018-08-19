@@ -43,7 +43,6 @@ describe('InputComponent', () => {
 
   it('should disable nativeEl when component is disabled', () => {
     component._disabled = '';
-
     component.ngOnInit();
     expect(inputEl.disabled).toBe(true);
   });
