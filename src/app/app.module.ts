@@ -5,16 +5,25 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectComponent } from './components/select/select.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { TopicsComponent } from './components/topics/topics.component';
+
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: '', component: TopicsComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     SelectComponent,
-    ModalComponent
+    ModalComponent,
+    TopicsComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
