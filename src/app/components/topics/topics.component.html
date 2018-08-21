@@ -1,9 +1,13 @@
-<!-- <app-input disabled></app-input> -->
-
-<!-- <app-select [options]="['One', 'Two', 'Three', 'Four']" disabled></app-select> -->
-
-<!-- <app-modal></app-modal> -->
-
 <h1>{{ title }}</h1>
 
-<button>Add Topic</button>
+<button (click)="openModal('new-topic')">Add Topic</button>
+
+<app-modal id="new-topic">
+  <div class="modal">
+    <div class="modal-body">
+      <h1>Add a new topic!</h1>
+      <button (click)="closeModal('new-topic');">Close</button>
+    </div>
+  </div>
+  <div class="modal-background"></div>
+</app-modal>

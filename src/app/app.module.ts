@@ -8,6 +8,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { TopicsComponent } from './components/topics/topics.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { ModalService } from './services/modal.service';
 
 const appRoutes: Routes = [
   { path: '', component: TopicsComponent }
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
