@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TopicsComponent } from './topics.component';
 import { By } from '@angular/platform-browser';
 import { ModalComponent } from '../modal/modal.component';
@@ -10,7 +9,6 @@ describe('TopicsComponent', () => {
   let fixture: ComponentFixture<TopicsComponent>;
   let addTopicBtn;
   let topicModal;
-  // let modalService;
   let closeTopicBtn;
 
   beforeEach(async(() => {
@@ -22,7 +20,6 @@ describe('TopicsComponent', () => {
   }));
 
   beforeEach(() => {
-    // modalService = TestBed.get(ModalService);
     fixture = TestBed.createComponent(TopicsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
