@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../services/modal.service';
 
-fdescribe('TopicsComponent', () => {
+describe('TopicsComponent', () => {
   let component: TopicsComponent;
   let fixture: ComponentFixture<TopicsComponent>;
   let addTopicBtn;
