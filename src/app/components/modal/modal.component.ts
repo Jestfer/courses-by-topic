@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { ModalService } from '../../services/modal.service';
 
 @Component({
@@ -6,15 +6,19 @@ import { ModalService } from '../../services/modal.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
 
   constructor(private modalService: ModalService, private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
-    // add self (this modal instance) to the modal service so it's accessible from controllers
-    // as soon as it is created
     this.modalService.add(this);
+  }
+
+  // Se aplica en cada test del suite, pero no en la app, comprobar si es al renderizar la vista de otro comp!
+  ngOnDestroy(): void {
+    this.modalService.remove(this.id);
+    this.el.nativeElement.remove();
   }
 
   open() {

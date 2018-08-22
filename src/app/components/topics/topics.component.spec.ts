@@ -45,7 +45,6 @@ describe('TopicsComponent', () => {
     expect(addTopicBtn.innerHTML).toEqual('Add Topic');
   });
 
-  // This is really testing also that we get the right Modal and not another one
   it('should display topic-modal after clicking on "Add Topic" btn', () => {
     addTopicBtn.click();
     expect(topicModal.styles.display).toEqual('block');

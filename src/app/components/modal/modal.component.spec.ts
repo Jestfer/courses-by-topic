@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalComponent } from './modal.component';
 import { ModalService } from '../../services/modal.service';
 
-describe('ModalComponent', () => {
+fdescribe('ModalComponent', () => {
   let component: ModalComponent;
   let fixture: ComponentFixture<ModalComponent>;
   let modalService;
@@ -35,5 +35,10 @@ describe('ModalComponent', () => {
     fixture.detectChanges();
     expect(modalService.modals.length).toBe(1);
     expect(modalService.modals[0].id).toEqual('mikasa');
+  });
+
+  it('should remove modal from the array in modal.service when it is destroyed', () => {
+    component.ngOnDestroy();
+    expect(modalService.modals.length).toBe(0);
   });
 });
