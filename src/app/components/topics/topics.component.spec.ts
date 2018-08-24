@@ -5,12 +5,14 @@ import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../services/modal.service';
 import { InputComponent } from '../input/input.component';
 
-describe('TopicsComponent', () => {
+fdescribe('TopicsComponent', () => {
   let component: TopicsComponent;
   let fixture: ComponentFixture<TopicsComponent>;
   let addTopicBtn;
   let topicModal;
   let closeTopicBtn;
+  let nameInput;
+  let descriptionInput;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,6 +29,8 @@ describe('TopicsComponent', () => {
     addTopicBtn = fixture.debugElement.query(By.css('button')).nativeElement;
     topicModal = fixture.debugElement.query(By.css('#new-topic'));
     closeTopicBtn = fixture.debugElement.queryAll(By.css('button'))[1].nativeElement;
+    nameInput = fixture.debugElement.queryAll(By.css('app-input'))[0];
+    descriptionInput = fixture.debugElement.queryAll(By.css('app-input'))[1];
   });
 
   it('should create', () => {
@@ -59,12 +63,11 @@ describe('TopicsComponent', () => {
     expect(topicModal.styles.display).toEqual('none');
   });
 
-  // it('should open topic-modal with two input fields: name and description', () => {
-  //   addTopicBtn.click();
-  //   const nameInput = fixture.debugElement.queryAll(By.css('app-input'))[0];
-  //   const descriptionInput = fixture.debugElement.queryAll(By.css('app-input'))[1];
-
-  // });
+  it('should open topic-modal with two input fields: name and description', () => {
+    addTopicBtn.click();
+    expect(nameInput.attributes.placeholder).toEqual('name');
+    expect(descriptionInput.attributes.placeholder).toEqual('description');
+  });
 
   // it('should create a FormGroup object with the right data only', () => {
 
