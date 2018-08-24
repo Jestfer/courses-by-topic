@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputComponent } from './input.component';
 import { By } from '@angular/platform-browser';
 
-describe('InputComponent', () => {
+fdescribe('InputComponent', () => {
   let component: InputComponent;
   let fixture: ComponentFixture<InputComponent>;
   let inputEl;
@@ -29,6 +29,7 @@ describe('InputComponent', () => {
 
   it('should have the following properties', () => {
     expect(component._value).not.toBe(null);
+    expect(component._placeholder).not.toBe(null);
   });
 
   it('should have an empty value by default', () => {

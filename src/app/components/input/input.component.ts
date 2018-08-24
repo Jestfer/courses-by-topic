@@ -8,6 +8,8 @@ import { Component, Input, Renderer2, ViewChild, ElementRef, OnInit } from '@ang
 export class InputComponent implements OnInit {
   @ViewChild('input') input: ElementRef;
 
+  @Input('placeholder') _placeholder: string;
+
   @Input('value') _value: String = '';
   set value(param: String) {
     this._value = param;

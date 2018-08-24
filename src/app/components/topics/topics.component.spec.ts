@@ -3,6 +3,7 @@ import { TopicsComponent } from './topics.component';
 import { By } from '@angular/platform-browser';
 import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../services/modal.service';
+import { InputComponent } from '../input/input.component';
 
 describe('TopicsComponent', () => {
   let component: TopicsComponent;
@@ -13,7 +14,7 @@ describe('TopicsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopicsComponent, ModalComponent ],
+      declarations: [ TopicsComponent, ModalComponent, InputComponent ],
       providers: [ ModalService ]
     })
     .compileComponents();
@@ -57,4 +58,15 @@ describe('TopicsComponent', () => {
     closeTopicBtn.click();
     expect(topicModal.styles.display).toEqual('none');
   });
+
+  // it('should open topic-modal with two input fields: name and description', () => {
+  //   addTopicBtn.click();
+  //   const nameInput = fixture.debugElement.queryAll(By.css('app-input'))[0];
+  //   const descriptionInput = fixture.debugElement.queryAll(By.css('app-input'))[1];
+
+  // });
+
+  // it('should create a FormGroup object with the right data only', () => {
+
+  // });
 });
