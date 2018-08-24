@@ -9,6 +9,7 @@ import { TopicsComponent } from './components/topics/topics.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ModalService } from './services/modal.service';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: TopicsComponent }
@@ -24,9 +25,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ModalService],
+  providers: [ModalService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

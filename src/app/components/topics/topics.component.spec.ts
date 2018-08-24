@@ -4,20 +4,21 @@ import { By } from '@angular/platform-browser';
 import { ModalComponent } from '../modal/modal.component';
 import { ModalService } from '../../services/modal.service';
 import { InputComponent } from '../input/input.component';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 fdescribe('TopicsComponent', () => {
   let component: TopicsComponent;
   let fixture: ComponentFixture<TopicsComponent>;
-  let addTopicBtn;
+  let topicModalBtn;
   let topicModal;
-  let closeTopicBtn;
-  let nameInput;
-  let descriptionInput;
+  let closeTopicBtn, addTopicBtn;
+  let nameInput, descriptionInput;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TopicsComponent, ModalComponent, InputComponent ],
-      providers: [ ModalService ]
+      imports: [ ReactiveFormsModule ],
+      providers: [ ModalService, FormBuilder ]
     })
     .compileComponents();
   }));
@@ -26,9 +27,10 @@ fdescribe('TopicsComponent', () => {
     fixture = TestBed.createComponent(TopicsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    addTopicBtn = fixture.debugElement.query(By.css('button')).nativeElement;
+    topicModalBtn = fixture.debugElement.query(By.css('button')).nativeElement;
     topicModal = fixture.debugElement.query(By.css('#new-topic'));
-    closeTopicBtn = fixture.debugElement.queryAll(By.css('button'))[1].nativeElement;
+    addTopicBtn = fixture.debugElement.queryAll(By.css('button'))[1].nativeElement;
+    closeTopicBtn = fixture.debugElement.queryAll(By.css('button'))[2].nativeElement;
     nameInput = fixture.debugElement.queryAll(By.css('app-input'))[0];
     descriptionInput = fixture.debugElement.queryAll(By.css('app-input'))[1];
   });
@@ -47,16 +49,16 @@ fdescribe('TopicsComponent', () => {
   });
 
   it('should be a button to add a new Topic', () => {
-    expect(addTopicBtn.innerHTML).toEqual('Add Topic');
+    expect(topicModalBtn.innerHTML).toEqual('Add Topic');
   });
 
   it('should display topic-modal after clicking on "Add Topic" btn', () => {
-    addTopicBtn.click();
+    topicModalBtn.click();
     expect(topicModal.styles.display).toEqual('block');
   });
 
   it('should hide topic-modal after clicking on "Close" btn', () => {
-    addTopicBtn.click();
+    topicModalBtn.click();
     expect(topicModal.styles.display).toEqual('block');
 
     closeTopicBtn.click();
@@ -64,12 +66,17 @@ fdescribe('TopicsComponent', () => {
   });
 
   it('should open topic-modal with two input fields: name and description', () => {
-    addTopicBtn.click();
+    topicModalBtn.click();
     expect(nameInput.attributes.placeholder).toEqual('name');
     expect(descriptionInput.attributes.placeholder).toEqual('description');
   });
 
-  // it('should create a FormGroup object with the right data only', () => {
+  it('should create a FormGroup object with the right data only', () => {
+    topicModalBtn.click();
+    nameInput.nativeElement.value = 'Chess';
+    descriptionInput.nativeElement.value = 'Chessable';
 
-  // });
+    addTopicBtn.click();
+    expect(this.form.name).toEqual('Chess');
+  });
 });

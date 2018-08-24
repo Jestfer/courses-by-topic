@@ -6,8 +6,13 @@
   <div class="modal">
     <div class="modal-body">
       <h1>Add a new topic!</h1>
-      <app-input placeholder="name"></app-input>
-      <app-input placeholder="description"></app-input>
+
+      <form (ngSubmit)="addTopic()" [formGroup]="form">
+        <app-input formControlName="name" placeholder="name"></app-input>
+        <app-input formControlName="description" placeholder="description"></app-input>
+
+        <button type="submit">Create Topic</button>
+      </form>
 
       <button (click)="closeModal('new-topic');">Close</button>
     </div>
