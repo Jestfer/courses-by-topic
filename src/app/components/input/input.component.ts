@@ -24,9 +24,8 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   @Input('disabled') _disabled: any;
 
-  _onChange: Function;
-  _propagateChange: Function;
-  _onTouched: Function;
+  private _propagateChange: Function;
+  private _onTouched: Function;
 
   constructor(private renderer: Renderer2) { }
 
