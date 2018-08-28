@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputComponent } from './input.component';
 import { By } from '@angular/platform-browser';
 
-describe('InputComponent', () => {
+fdescribe('InputComponent', () => {
   let component: InputComponent;
   let fixture: ComponentFixture<InputComponent>;
   let inputEl;
@@ -46,5 +46,11 @@ describe('InputComponent', () => {
     component._disabled = '';
     component.ngOnInit();
     expect(inputEl.disabled).toBe(true);
+  });
+
+  it('should change comp. value when onChange() is run with a different value', () => {
+    component.onChange('Chess');
+    fixture.detectChanges();
+    expect(component._value).toEqual('Chess');
   });
 });

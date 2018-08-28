@@ -6,7 +6,7 @@ import { ModalService } from '../../services/modal.service';
 import { InputComponent } from '../input/input.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-fdescribe('TopicsComponent', () => {
+describe('TopicsComponent', () => {
   let component: TopicsComponent;
   let fixture: ComponentFixture<TopicsComponent>;
   let topicModalBtn;

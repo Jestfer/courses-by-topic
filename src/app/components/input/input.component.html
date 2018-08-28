@@ -1,1 +1,1 @@
-<input #input type="text" [value]="_value" [attr.placeholder]="_placeholder">
+<input #input type="text" [value]="_value" [attr.placeholder]="_placeholder" (change)="onChange($event.target.value)">
